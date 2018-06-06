@@ -6,6 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// MountAuthorizedRoute will mount a route behind an authorization check
 func MountAuthorizedRoute(path string, method string, fn gin.HandlerFunc) *gin.Engine {
 	engine := buildEngine()
 	group := engine.Group("/")

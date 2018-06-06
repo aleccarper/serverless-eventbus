@@ -4,15 +4,17 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
+// Event model
 type Event struct {
 	gorm.Model
 	EventType string `json:"event_type"`
 	Payload   string `json:"payload"`
 }
 
-func CreateEvent(event_type string, payload string) Event {
+// CreateEvent will persist an event and deliver it to applicable subscriptions
+func CreateEvent(eventType string, payload string) Event {
 	event := Event{
-		EventType: event_type,
+		EventType: eventType,
 		Payload:   payload,
 	}
 

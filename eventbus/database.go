@@ -4,6 +4,8 @@ import (
 	"os"
 
 	"github.com/jinzhu/gorm"
+
+	// the Poestgres dialects is required for connecting to PG databases
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 )
 
