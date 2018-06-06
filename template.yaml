@@ -1,0 +1,66 @@
+AWSTemplateFormatVersion : '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Description: 
+  An example RESTful service
+Resources:
+  EventsCreate:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: main
+      CodeUri: ./bin/events/create.zip
+      Runtime: go1.x
+      Timeout: 30
+      Environment:
+        Variables:
+          DATABASE_USER: postgres
+          DATABASE_PASSWORD: postgres
+          DATABASE_HOST: localhost
+          DATABASE_NAME: eventbus
+          AUTHENTICATION_TOKEN: asdf
+      Events:
+        GetRates:
+          Type: Api
+          Properties:
+            Path: /events
+            Method: post
+  SubscriptionsCreate:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: main
+      CodeUri: ./bin/subscriptions/create.zip
+      Runtime: go1.x
+      Timeout: 30
+      Environment:
+        Variables:
+          DATABASE_USER: postgres
+          DATABASE_PASSWORD: postgres
+          DATABASE_HOST: localhost
+          DATABASE_NAME: eventbus
+          AUTHENTICATION_TOKEN: asdf
+      Events:
+        GetRates:
+          Type: Api
+          Properties:
+            Path: /subscriptions
+            Method: post
+  SubscriptionsDelete:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: main
+      CodeUri: ./bin/subscriptions/delete.zip
+      Runtime: go1.x
+      Timeout: 30
+      Environment:
+        Variables:
+          DATABASE_USER: postgres
+          DATABASE_PASSWORD: postgres
+          DATABASE_HOST: localhost
+          DATABASE_NAME: eventbus
+          AUTHENTICATION_TOKEN: asdf
+      Events:
+        GetRates:
+          Type: Api
+          Properties:
+            Path: /subscriptions/{id}
+            Method: delete
