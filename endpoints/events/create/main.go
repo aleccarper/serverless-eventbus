@@ -22,8 +22,15 @@ func Handler(req events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse,
 	return ginLambda.Proxy(req)
 }
 
+type Input struct {
+	EventType string `form:"event_type" json:"event_type" binding:"required"`
+	Payload   string `form:"payload" json:"payload" binding:"required"`
+}
+
 func processRequest(c *gin.Context) {
-	event := eventbus.CreateEvent(c.PostForm("event_type"), c.PostForm("payload"))
+	var input Input
+	c.BindJSON(&input)
+	event := eventbus.CreateEvent(input.EventType, input.Payload)
 	c.JSON(http.StatusCreated, event)
 }
 

@@ -13,11 +13,11 @@ Resources:
       Timeout: 30
       Environment:
         Variables:
-          DATABASE_USER: postgres
-          DATABASE_PASSWORD: postgres
-          DATABASE_HOST: localhost
-          DATABASE_NAME: eventbus
-          AUTHENTICATION_TOKEN: asdf
+          DATABASE_USER:
+          DATABASE_PASSWORD:
+          DATABASE_HOST:
+          DATABASE_NAME:
+          AUTHENTICATION_TOKEN:
       Events:
         GetRates:
           Type: Api
@@ -33,11 +33,11 @@ Resources:
       Timeout: 30
       Environment:
         Variables:
-          DATABASE_USER: postgres
-          DATABASE_PASSWORD: postgres
-          DATABASE_HOST: localhost
-          DATABASE_NAME: eventbus
-          AUTHENTICATION_TOKEN: asdf
+          DATABASE_USER:
+          DATABASE_PASSWORD:
+          DATABASE_HOST:
+          DATABASE_NAME:
+          AUTHENTICATION_TOKEN:
       Events:
         GetRates:
           Type: Api
@@ -53,11 +53,11 @@ Resources:
       Timeout: 30
       Environment:
         Variables:
-          DATABASE_USER: postgres
-          DATABASE_PASSWORD: postgres
-          DATABASE_HOST: localhost
-          DATABASE_NAME: eventbus
-          AUTHENTICATION_TOKEN: asdf
+          DATABASE_USER:
+          DATABASE_PASSWORD:
+          DATABASE_HOST:
+          DATABASE_NAME:
+          AUTHENTICATION_TOKEN:
       Events:
         GetRates:
           Type: Api
